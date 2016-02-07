@@ -1,0 +1,116 @@
+\hypertarget{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity}{}\section{Référence de la classe p8.\+demo.\+colorflood.\+Color\+Flood\+Activity}
+\label{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity}\index{p8.\+demo.\+colorflood.\+Color\+Flood\+Activity@{p8.\+demo.\+colorflood.\+Color\+Flood\+Activity}}
+Graphe d\textquotesingle{}héritage de p8.\+demo.\+colorflood.\+Color\+Flood\+Activity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a34e116c4a353266c0356fa19ff850307}{on\+Create} (Bundle saved\+Instance\+State)
+\item 
+void \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_af318bc90e1d129cc573184b92c4f1331}{on\+Pause} ()
+\item 
+void \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_ab94cb3fb2a0c95a3cf6eb2cde0535877}{on\+Resume} ()
+\item 
+void \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a7c4b18f861611b81114183d34ed9bc4f}{on\+Stop} ()
+\item 
+void \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a44048b3cc00c70ae3b49a1d925f06ac7}{on\+Restart} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+la classe activité c\textquotesingle{}est la fenetre qui s\textquotesingle{}affiche sur le téléphone suite au declenchemeent de l\textquotesingle{}application ou l\textquotesingle{}interface graphique de l\textquotesingle{}application cette classe herite de la classe activité 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a34e116c4a353266c0356fa19ff850307}{}\index{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}}
+\subsubsection[{on\+Create}]{\setlength{\rightskip}{0pt plus 5cm}void p8.\+demo.\+colorflood.\+Color\+Flood\+Activity.\+on\+Create (
+\begin{DoxyParamCaption}
+\item[{Bundle}]{saved\+Instance\+State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a34e116c4a353266c0356fa19ff850307}
+variable seekbar\+: correspond a la barre de progression
+
+/$\ast$$\ast$ Cette méthode est la première qui est lancée au démarrage d\textquotesingle{}une application. 
+\begin{DoxyParams}{Paramètres}
+{\em saved\+Instance\+State} & quand l\textquotesingle{}application est rappelé après avoir tué par le système c\textquotesingle{}est a cela que sert le parametre de type Bundle \\
+\hline
+\end{DoxyParams}
+on utilise cette methode pour forcer l\textquotesingle{}application a etre que en portrait et on peut pas tourner le telephone pour avoir le mode paysage 
+\begin{DoxyParams}{Paramètres}
+{\em Activity\+Info.\+S\+C\+R\+E\+E\+N\+\_\+\+O\+R\+I\+E\+N\+T\+A\+T\+I\+O\+N\+\_\+\+P\+O\+R\+T\+R\+A\+I\+T} & \\
+\hline
+\end{DoxyParams}
+super.\+on\+Create\+: avec super on fait appel à une méthode ou un attribut qui appartient à la superclasse de la méthode actuelle. autrement dit a la classe activity
+
+La méthode void set\+Content\+View (View vue) permet d\textquotesingle{}indiquer l\textquotesingle{}interface graphique de notre activité.
+
+seek\+Bar = (Seek\+Bar) find\+View\+By\+Id(R.\+id.\+seek\+Bar)\+: on crée un objet de type seekbar ou barre de progression pour nos levels
+
+seek\+Bar.\+set\+Max(4)\+: on défini le max de la barre a progression qui est égal a 4 c\textquotesingle{}est a dire de 0 a 4 ce qui correspond a nos 5 levels dans le jeu
+
+la classe seek\+Bar.\+set\+On\+Seek\+Bar\+Change\+Listener c\textquotesingle{}est comme un rappel(callback) qui informe lorsque le niveau d\textquotesingle{}activité a été changé. cette classe elle contient 3 sous methode\+: on\+Progress\+Changed() on\+Start\+Tracking\+Touch() on\+Stop\+Tracking\+Touch()
+
+int progress = 0\+: une variable progress qu\textquotesingle{}on l\textquotesingle{}initialise a 0 pour dire on commence toujours par le level 0
+
+la methode on\+Progress\+Changed() elle sert quand la barre de progression elle change. 
+\begin{DoxyParams}{Paramètres}
+{\em seekbar} & c\textquotesingle{}est la barre dans laquelle on va effectuer le changement. \\
+\hline
+{\em progres\+Value} & la nouvelle valeur de la variable progress declaré la haut. \\
+\hline
+{\em Vrai} & si le changement d\textquotesingle{}étape a été lancée par l\textquotesingle{}utilisateur.\\
+\hline
+\end{DoxyParams}
+la methode on\+Start\+Tracking\+Touch() elle permet d\textquotesingle{}avoir une Notification que l\textquotesingle{}utilisateur a commencé un geste tactile. 
+\begin{DoxyParams}{Paramètres}
+{\em seekbar} & c\textquotesingle{}est la barre dans laquelle on va effectuer le changement.\\
+\hline
+\end{DoxyParams}
+la methode on\+Stop\+Tracking\+Touch() elle permet d\textquotesingle{}avoir une Notification que l\textquotesingle{}utilisateur a terminé un geste tactile. 
+\begin{DoxyParams}{Paramètres}
+{\em seekbar} & c\textquotesingle{}est la barre dans laquelle on va effectuer le changement.\\
+\hline
+\end{DoxyParams}
+si l\textquotesingle{}etat est inferieur a 2 puissance le premier click de l\textquotesingle{}utilisateur alors on set le level selon la variable progress
+
+on crée un objet view du meme type que la classe(\+Color\+Flood\+View) et ca va etre comme une reference a la vu qu\textquotesingle{}on a créé
+
+set\+Visibility()\+: on peut masquer ou afficher des vues \hypertarget{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_af318bc90e1d129cc573184b92c4f1331}{}\index{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}!on\+Pause@{on\+Pause}}
+\index{on\+Pause@{on\+Pause}!p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}}
+\subsubsection[{on\+Pause}]{\setlength{\rightskip}{0pt plus 5cm}void p8.\+demo.\+colorflood.\+Color\+Flood\+Activity.\+on\+Pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_af318bc90e1d129cc573184b92c4f1331}
+cete methode est appelé lorsque le système est sur le point de commencer à reprendre une activité précédente. super.\+on\+Pause()\+: avec super on fait appel à une méthode ou un attribut qui appartient à la superclasse de la méthode actuelle, dans ce cas c \textquotesingle{}est \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_af318bc90e1d129cc573184b92c4f1331}{on\+Pause()} \hypertarget{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a44048b3cc00c70ae3b49a1d925f06ac7}{}\index{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}!on\+Restart@{on\+Restart}}
+\index{on\+Restart@{on\+Restart}!p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}}
+\subsubsection[{on\+Restart}]{\setlength{\rightskip}{0pt plus 5cm}void p8.\+demo.\+colorflood.\+Color\+Flood\+Activity.\+on\+Restart (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a44048b3cc00c70ae3b49a1d925f06ac7}
+cette methode est appelé après votre activité a été arrêté, avant d\textquotesingle{}être repris. view.\+set\+Restart(true)\+: a chaque fois cette methose est appelé on fait un restart a notre application
+
+super.\+on\+Restart()\+: avec super on fait appel à une méthode ou un attribut qui appartient à la superclasse de la méthode actuelle, dans ce cas c \textquotesingle{}est \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a44048b3cc00c70ae3b49a1d925f06ac7}{on\+Restart()} \hypertarget{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_ab94cb3fb2a0c95a3cf6eb2cde0535877}{}\index{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}!on\+Resume@{on\+Resume}}
+\index{on\+Resume@{on\+Resume}!p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}}
+\subsubsection[{on\+Resume}]{\setlength{\rightskip}{0pt plus 5cm}void p8.\+demo.\+colorflood.\+Color\+Flood\+Activity.\+on\+Resume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_ab94cb3fb2a0c95a3cf6eb2cde0535877}
+cette methode est appelé lorsque l\textquotesingle{}activité sera commencer à interagir avec l\textquotesingle{}utilisateur. super.\+on\+Resume()\+: avec super on fait appel à une méthode ou un attribut qui appartient à la superclasse de la méthode actuelle, dans ce cas c \textquotesingle{}est \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_ab94cb3fb2a0c95a3cf6eb2cde0535877}{on\+Resume()} \hypertarget{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a7c4b18f861611b81114183d34ed9bc4f}{}\index{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}!on\+Stop@{on\+Stop}}
+\index{on\+Stop@{on\+Stop}!p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity@{p8\+::demo\+::colorflood\+::\+Color\+Flood\+Activity}}
+\subsubsection[{on\+Stop}]{\setlength{\rightskip}{0pt plus 5cm}void p8.\+demo.\+colorflood.\+Color\+Flood\+Activity.\+on\+Stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a7c4b18f861611b81114183d34ed9bc4f}
+cette methode est appelé lorsque l\textquotesingle{}activité est plus visible pour l\textquotesingle{}utilisateur, car une autre activité a été repris et couvrant celui-\/ci. super.\+on\+Stop()\+: avec super on fait appel à une méthode ou un attribut qui appartient à la superclasse de la méthode actuelle, dans ce cas c \textquotesingle{}est \hyperlink{classp8_1_1demo_1_1colorflood_1_1_color_flood_activity_a7c4b18f861611b81114183d34ed9bc4f}{on\+Stop()} 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_color_flood_activity_8java}{Color\+Flood\+Activity.\+java}\end{DoxyCompactItemize}
